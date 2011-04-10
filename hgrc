@@ -9,7 +9,6 @@ filemerge.args = -d $base $local $other
 filemerge.checkchanged = true
 
 [trusted]
-groups = django
 
 [extensions]
 color =

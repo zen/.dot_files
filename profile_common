@@ -28,21 +28,21 @@ export VIRTUALENV_USE_DISTRIBUTE=true
 LOCAL_BIN=~/.dot_files/bin
 export PATH="$LOCAL_BIN:/opt/automation:$PATH"
 
+# merged from my old configs
+export HISTSIZE=100000
+export HISTFILESIZE=500000
+# date and time in history
+export HISTTIMEFORMAT="%h/%d - %H:%M:%S "
+export GREP_OPTIONS='--color=auto'
+
+# Debian stuff
+export DEBFULLNAME="Tomasz 'Zen' Napierala"
+export DEBEMAIL='tomasz@napierala.org'
+export DEBSIGN_KEYID="2F9BEB1D"
+
 #
 # my aliases
 #
-
-# LANDSRAAD
-alias landsraad="ssh -Yp26 ambv@92.43.117.100"
-alias caladan="ssh -Yp26 ambv@92.43.117.101"
-alias arrakis="ssh -Yp26 ambv@92.43.117.102"
-alias giediprime="ssh -Yp26 ambv@92.43.117.103"
-alias landsraad-tunnel-5900="ssh -Yp26 ambv@92.43.117.100 -L 5900:localhost:5900 -N"
-alias landsraad-tunnel-5901="ssh -Yp26 ambv@92.43.117.100 -L 5901:localhost:5901 -N"
-
-# ALLPLAY
-alias allegra="ssh -Yp58881 root@ster-gaming.pl"
-alias allplay="ssh -Yp58022 ambv@allplay.pl"
 
 # SAFE COMMANDS
 alias rm="rm -i"
@@ -74,6 +74,16 @@ alias djevo='python -Wd manage.py evolve --hint'
 alias djmm='python -Wd manage.py makemessages -ae html,txt'
 alias djcm='python -Wd manage.py compilemessages'
 alias djsh='python -Wd manage.py shell'
+
+# Host aliases
+alias sshr='ssh -lroot '
+alias sshesp='ssh -p22388 zen@redmine.espeo.pl'
+alias sshmyc='ssh srv2.mycork.org'
+alias sshesp2='ssh -p22399 zen@redmine.espeo.pl'
+alias sshdev='ssh zen@devgw1.dc2'
+alias sshpci1='ssh zen@devgw-pci.te2'
+alias sshpci2='ssh zen@devgw-pci.dc2'
+alias sshpci3='ssh zen@devgw-pci.dc3'
 
 #
 # my functions

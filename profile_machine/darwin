@@ -12,19 +12,12 @@ if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
   export TERM=xterm-256color
 fi
 
+export PATH=${PATH}:/Applications/android-sdk/platform-tools
+export PATH=${PATH}:/Users/zen/Documents/scripts
+
 #
 # my aliases
 #
-
-alias cvim='/opt/local/bin/vim -XO'
-alias pro='cd ~/Documents/Projekty;lt 1'
-alias propy='cd ~/Documents/Projekty/Python;lt 1'
-alias proeuro='cd ~/Documents/Projekty/STX-Next/EuroPython10;lt 1'
-alias proeuro9='cd ~/Documents/Projekty/STX-Next/EuroPython09;lt 1'
-alias ptar='tar --use-compress-program /opt/local/bin/pbzip2 '
-alias pgstart="sudo su postgres -c '/opt/local/lib/postgresql83/bin/pg_ctl -D /opt/local/var/db/postgresql83/defaultdb -l /opt/local/var/log/postgresql83/postgres.log start'"
-alias pgstop="sudo su postgres -c '/opt/local/lib/postgresql83/bin/pg_ctl -D /opt/local/var/db/postgresql83/defaultdb stop -m fast'"
-alias pgstatus="sudo su postgres -c '/opt/local/lib/postgresql83/bin/pg_ctl status -D /opt/local/var/db/postgresql83/defaultdb'"
 
 #
 # my functions
@@ -48,39 +41,3 @@ function vim {
     mvim -XO1 $@
   fi
 }
-
-unalias propy
-function propy {
-    LAST=`pwd`
-    cd ~/Documents/Projekty/Python
-    if [[ -d "$@" ]]; then
-        cd "$@"
-        wintitle "$@"
-        if [[ -f bin/activate ]]; then
-            which deactivate >/dev/null && deactivate
-            source bin/activate
-        fi
-        if [[ -f .propy ]]; then
-            source .propy
-        else
-            if [[ -d project ]]; then
-                cd project
-                lt 4
-            else
-                lt 3
-            fi
-            echo
-            git config --get remote.origin.url
-            git status -s 2>/dev/null
-            hg status 2>/dev/null
-            todo-list --python
-        fi
-    elif [[ "$@" == "" ]]; then
-        lt 1
-    else
-        echo "No such project: $@"
-        lt 1
-        cd $LAST 
-    fi
-}
-alias pp='propy'

@@ -43,7 +43,8 @@ zstyle ':completion::complete:*' cache-path ~/.zcache
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-prompt \
   '%SAt %p: Hit TAB for more, or the character to insert%s'
-zstyle ':completion:*' menu select=1 _complete _ignored _approximate
+#zstyle ':completion:*' menu select=1 _complete _ignored _approximate
+zstyle ':completion:*' menu select=long-list select=1 _complete _ignored _approximate
 zstyle -e ':completion:*:approximate:*' max-errors \
   'reply=( $(( ($#PREFIX+$#SUFFIX)/2 )) numeric )'
 zstyle ':completion:*' select-prompt \
