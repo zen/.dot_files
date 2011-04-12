@@ -1,3 +1,5 @@
 # RedHat specific settings
 alias ls='ls $LS_OPTIONS'
 alias screen='TERM=xterm-color screen'
+
+export PATH=${PATH}:/user/sbin:/usr/local/bin:/usr/local/sbin

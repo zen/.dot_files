@@ -24,7 +24,7 @@ set shortmess=aoO "abbreviate status line but don't truncate messages
 set showcmd "show combo command as you type it in the bottom right corner
 set ruler laststatus=2 "show rulers for buffers and the status line even if there's only 1 file
 set rulerformat=%30(%=\ %b\ 0x%B\ \ %l:%c\ %P%) "as the name says
-set mouse=a "use the mouse wherever possible
+#set mouse=a "use the mouse wherever possible
 set title "change the terminal title according to the currently active buffer
 set number "always show line numbers unless otherwise specified
 set clipboard+=unnamed "the same clipboard is used for Visual mode

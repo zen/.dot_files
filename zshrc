@@ -25,15 +25,15 @@ unsetopt autocd bgnice beep
 
 bindkey -e
 
-preexec() {
-    print -rn -- $terminfo[cuu1]
-    let cols=$terminfo[cols]-9
-    while [[ $cols -gt 0 ]]; do
-        print -n $terminfo[cuf1]
-        let cols=cols-1
-    done
-    print `date +%H:%M:%S`
-}
+#preexec() {
+#    print -rn -- $terminfo[cuu1]
+#    let cols=$terminfo[cols]-9
+#    while [[ $cols -gt 0 ]]; do
+#        print -n $terminfo[cuf1]
+#        let cols=cols-1
+#    done
+#    print `date +%H:%M:%S`
+#}
 
 autoload -Uz compinit
 compinit
