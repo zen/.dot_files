@@ -6,7 +6,7 @@ setopt allexport
 if [ -e ~/.pscolors ]; then
   source ~/.pscolors
 fi
-PS1="%{$PS_USERCOLOR%}%n%{$PS_ATCOLOR%}@%{$PS_HOSTCOLOR%}%m%{$PS_COLONCOLOR%}:%{$PS_PATHCOLOR%}%~%{$PS_PROMPTCOLOR%} $ %{$PS_NOCOLOR%}"
+PS1="%{$PS_USERCOLOR%}%n%{$PS_ATCOLOR%}@%{$PS_HOSTCOLOR%}%M%{$PS_COLONCOLOR%}:%{$PS_PATHCOLOR%}%~%{$PS_PROMPTCOLOR%} $ %{$PS_NOCOLOR%}"
 #RPROMPT="%D{%T}"
 HISTFILE=~/.zhistory
 HISTSIZE=10000
