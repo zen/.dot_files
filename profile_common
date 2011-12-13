@@ -80,10 +80,6 @@ alias sshr='ssh -lroot '
 alias sshesp='ssh -p22388 zen@redmine.espeo.pl'
 alias sshmyc='ssh srv2.mycork.org'
 alias sshesp2='ssh -p22399 zen@redmine.espeo.pl'
-alias sshdev='ssh zen@devgw1.dc2'
-alias sshpci1='ssh zen@devgw-pci.te2'
-alias sshpci2='ssh zen@devgw-pci.dc2'
-alias sshpci3='ssh zen@devgw-pci.dc3'
 
 #
 # my functions
