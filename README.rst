@@ -1,5 +1,5 @@
-ambv's ``.dot_files``
----------------------
+zen's ``.dot_files``
+original author:ambv
 
 This is my distributed configuration I use for my command-line work on all
 servers I have access to.  It consists of following parts:
