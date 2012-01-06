@@ -19,10 +19,12 @@ bind Space:magic-space
 bind -m vi-insert "\C-n":menu-complete
 bind -m vi-insert "\C-p":dynamic-complete-history
 bind -m vi-insert "\C-a":vi-append-eol
+
 export HISTCONTROL=erasedups
 export HISTSIZE=10000
 export PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
 set -o vi
+
 
 source ~/.profile_common
 

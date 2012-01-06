@@ -18,7 +18,7 @@ unsetopt share_history
 
 setopt alwaystoend autocontinue autolist autoresume autopushd \
   clobber combiningchars correct listrowsfirst longlistjobs mailwarning \
-  nomatch notify pushdtohome menucomplete
+  nomatch notify pushdtohome menucomplete extendedhistory
 unsetopt autocd bgnice beep
 
 # unsetopt autoparamslash
