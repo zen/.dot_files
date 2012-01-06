@@ -27,6 +27,10 @@ export PIP_DOWNLOAD_CACHE=~/.pip-cache
 export VIRTUALENV_USE_DISTRIBUTE=true
 LOCAL_BIN=~/.dot_files/bin
 export PATH="$LOCAL_BIN:/opt/automation:$PATH"
+bind Space:magic-space
+bind -m vi-insert "\C-n":menu-complete
+bind -m vi-insert "\C-p":dynamic-complete-history
+bind -m vi-insert "\C-a":vi-append-eol
 
 # merged from my old configs
 export HISTSIZE=100000
@@ -34,6 +38,10 @@ export HISTFILESIZE=500000
 # date and time in history
 export HISTTIMEFORMAT="%h/%d - %H:%M:%S "
 export GREP_OPTIONS='--color=auto'
+shopt -s histappend cdspell
+export HISTCONTROL=erasedups
+export PROMPT_COMMAND="history -a; history -n; $PROMPT_COMMAND"
+set -o vi
 
 # Debian stuff
 export DEBFULLNAME="Tomasz 'Zen' Napierala"
