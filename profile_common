@@ -80,10 +80,11 @@ alias djsh='python -Wd manage.py shell'
 
 # Host aliases
 alias sshr='ssh -lroot '
-alias sshesp='ssh -p22388 zen@redmine.espeo.pl'
-alias sshmyc='ssh srv2.mycork.org'
-alias sshesp2='ssh -p22399 zen@redmine.espeo.pl'
+alias sshesp='ssh -p22388 redmine.espeo.pl'
+alias sshmyc='ssh srv3.mycork.org'
+alias sshesp2='ssh -p22399 redmine.espeo.pl'
 alias sshkra='ssh 91.102.119.70'
+alias sshmgm='ssh mgm.grimstad.solita.fi'
 
 #
 # my functions
