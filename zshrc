@@ -92,3 +92,5 @@ zstyle ':completion:*:ssh:*' group-order \
 zstyle '*' single-ignored show
 
 source ~/.profile_common
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
