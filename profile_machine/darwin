@@ -15,7 +15,7 @@ fi
 export PATH=${PATH}:/Applications/android-sdk/platform-tools
 export PATH=${PATH}:$HOME/Documents/scripts
 # Brew
-export PATH=${PATH}:/usr/local/bin:/
+export PATH=${PATH}:/usr/local/bin
 
 #
 # my aliases
