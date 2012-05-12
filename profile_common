@@ -78,6 +78,12 @@ alias djmm='python -Wd manage.py makemessages -ae html,txt'
 alias djcm='python -Wd manage.py compilemessages'
 alias djsh='python -Wd manage.py shell'
 
+# Knife aliases
+alias kcu='knife cookbook upload'
+alias kne='knife node edit'
+alias kns='knife node show'
+alias krf='knife role from file'
+
 # Host aliases
 alias sshr='ssh -lroot '
 alias sshesp='ssh -p22388 redmine.espeo.pl'
