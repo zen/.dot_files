@@ -44,3 +44,4 @@ fi
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+test -e /home/zen/.wikia-profile && source /home/zen/.wikia-profile #=- Wikia
