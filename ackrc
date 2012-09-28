@@ -1,4 +1,5 @@
 --type-set=rest=.rst
+--type-set=ruby=.json
 --nojs
 --nohtml
 --ignore-dir=.svn
