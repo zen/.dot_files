@@ -3,19 +3,15 @@
 #
 # my exports
 #
-
-export PATH=/opt/local/sbin:/opt/local/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin:/opt/local/Library/Frameworks/Python.framework/Versions/2.5/bin:/opt/local/Library/Frameworks/Python.framework/Versions/3.1/bin:/opt/local/lib/mysql5/bin:$PATH
+# Brew
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:$PATH
 export EDITOR="/usr/local/bin/mvim -f"
-export VIM_APP_DIR=/Applications/MacPorts/
-export QTDIR=/opt/local/lib/qt3
 if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
   export TERM=xterm-256color
 fi
 
 export PATH=${PATH}:/Applications/android-sdk/platform-tools
 export PATH=${PATH}:$HOME/Documents/scripts
-# Brew
-export PATH=${PATH}:/usr/local/bin
 
 #
 # my aliases
@@ -42,3 +38,8 @@ function vim {
     mvim -XO1 $@
   fi
 }
+
+# git completion
+if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+. `brew --prefix`/etc/bash_completion.d/git-completion.bash
+fi

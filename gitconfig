@@ -9,8 +9,15 @@
 	interactive = auto
 	status = auto
 [diff]
-  external = git_vimdiff
+  external = git_fmdiff
 [pager]
   diff =
 [core]
 	excludesfile = ~/.gitignore
+[merge]
+        ff = false
+[alias]
+        ci = commit
+        co = checkout
+        st = status
+        hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short

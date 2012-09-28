@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#/Applications/Xcode.app/Contents/Applications/FileMerge.app/Contents/MacOS/FileMerge "$2" "$5"
+opendiff $2 $5

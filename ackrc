@@ -1,3 +1,4 @@
 --type-set=rest=.rst
 --nojs
 --nohtml
+--ignore-dir=.svn
