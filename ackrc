@@ -1,5 +1,8 @@
 --type-set=rest=.rst
 --type-set=ruby=.json
+--type-set=ruby=.erb
+--type-set=ruby=.rb
+--type-set=yaml=.yml
 --nojs
 --nohtml
 --ignore-dir=.svn
