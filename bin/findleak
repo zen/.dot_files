@@ -1,0 +1,86 @@
+#!/bin/bash
+#
+# findleak
+##########################################################################
+# Script that displays an overview of the virtual memory growth per process
+# for the last 14 days. Per process you can find the PID and process name,
+# how many days the process has lived (max. 14 days), the total growth of
+# the memory consumption during that number of days, and the growth for
+# each day (in MiB).
+# Processes that were only present for 1 day and processes that did not
+# grow are ignored.
+#
+# Condition to run the script:
+#            atop version >= 1.24 should be logging in the background.
+# ========================================================================
+# Author:       Gerlof Langeveld              gerlof.langeveld@atoptool.nl
+# Initial date: March 2010
+#
+# Changed by:   Gerrit A. Smit                GerritASmit@ATComputing.nl
+#
+# Version:      1.1
+##########################################################################
+PERIOD=yyyyyyyyyyyyyyy
+DAYCNT=0
+
+printf "  PID COMMAND      #DAYS  TOTGROWTH  DAILYGROWTH (MB)\n"
+
+# read all data of processes and remember their virtual size
+#
+while [ "$PERIOD" != "" ]
+do
+	let DAYCNT+=1
+
+	printf -- "Processing day $DAYCNT\r" >&2
+
+	atop -m -r $PERIOD -b 16:58 -e 17:02 2> /dev/null |
+		grep -v '^[A-Za-z]' |
+		grep -v '^ *$' | grep -v 'VSIZE' | grep -v ' *?' |
+		awk '{print $1 "@" $10, $5}'
+
+	PERIOD=`echo $PERIOD | sed 's/y$//'`
+done |
+awk ' # PROCESS THE FILTERED DATA
+# transform the memory-unit (K, M, G) to kilobytes
+#
+$2 ~ /K$/ { sub(/K$/, "", $2) }
+$2 ~ /M$/ { sub(/M$/, "", $2); $2 *= 1024 }
+$2 ~ /G$/ { sub(/G$/, "", $2); $2 *= 1024 * 1024 }
+
+	# store info in arrays
+	#
+	{	if ($1 in procpre)
+		{
+			procsiz[$1]  = procsiz[$1] " " ($2 - procpre[$1])
+			procpre[$1]  = $2
+			procnum[$1] += 1
+		}
+		else
+		{
+			procpre[$1] = $2
+			procbeg[$1] = $2
+		}
+
+		procend[$1] = $2 - procbeg[$1]
+	}
+
+	END	{
+		for (key in procsiz)
+		{
+			if (procend[key] <= 0)
+				continue
+
+			split(key, keypart, "@")
+			n = split(procsiz[key], sz)
+
+			printf("%5d %-12.12s %5d %7.2f MB  ",
+				keypart[1], keypart[2],
+				procnum[key], procend[key]/1024)
+
+			for (i=1; i <= n; i++)
+				printf("%5.2f ", sz[i]/1024)
+
+			printf("\n")
+		}
+	}
+' | sort -k4n
